@@ -40,6 +40,7 @@ class InfoFilms: UIViewController {
     private func registorCell() {
         tableView.register(InfoFilmsCell.self, forCellReuseIdentifier: "InfoFilmsCell")
         tableView.register(ShortDescriptionCell.self, forCellReuseIdentifier: "ShortDescriptionCell")
+        tableView.register(RatingViewCell.self, forCellReuseIdentifier: "RatingViewCell")
     }
     private func settingTableView() {
         tableView.delegate = self
@@ -48,12 +49,13 @@ class InfoFilms: UIViewController {
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 200
         tableView.separatorStyle = .none
+        tableView.allowsSelection = false
     }
 }
 extension InfoFilms: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2
+        return 5
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.row == 0 {
@@ -65,6 +67,10 @@ extension InfoFilms: UITableViewDelegate, UITableViewDataSource {
             let cell1 = tableView.dequeueReusableCell(withIdentifier: "ShortDescriptionCell") as! ShortDescriptionCell
             cell1.configure(with: filmInfo)
             return cell1
+        } else if indexPath.row == 2 {
+            let cell2 = tableView.dequeueReusableCell(withIdentifier: "RatingViewCell") as! RatingViewCell
+            cell2.configure(with: filmInfo)
+            return cell2
         }
         return UITableViewCell()
     }
