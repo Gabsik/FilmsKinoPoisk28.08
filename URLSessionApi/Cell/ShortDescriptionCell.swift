@@ -35,6 +35,7 @@ class ShortDescriptionCell: UITableViewCell {
     private func setting() {
         descriptionFilmLabel.font = UIFont.boldSystemFont(ofSize: 20)
         descriptionFilmLabel.numberOfLines = 0
+        descriptionFilmLabel.textAlignment = NSTextAlignment.justified
     }
     func configure(with film: Doc) {
         descriptionFilmLabel.text = film.description

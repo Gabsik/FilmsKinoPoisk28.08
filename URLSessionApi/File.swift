@@ -4,22 +4,7 @@
 //
 //  Created by User on 30.07.2023.
 //
-import Foundation
-
-
-//enum Api {
-//    case login
-//    var url: String {
-//        return "https://api.kinopoisk.dev/v1.3/movie?page=1&limit=10"
-//    }
-//    var headrs: [String: String] {
-//        switch self {
-//    case .login:
-//        return ["X-API-KEY": "MP3QN5M-VZBMN34-KTKD5RQ-EBAGWS2"]
-//        }
-//    }
-//}
-
+//import Foundation
 // MARK: - Films
 struct Films: Codable {
     let docs: [Doc]

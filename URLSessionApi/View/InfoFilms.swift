@@ -41,6 +41,7 @@ class InfoFilms: UIViewController {
         tableView.register(InfoFilmsCell.self, forCellReuseIdentifier: "InfoFilmsCell")
         tableView.register(ShortDescriptionCell.self, forCellReuseIdentifier: "ShortDescriptionCell")
         tableView.register(RatingViewCell.self, forCellReuseIdentifier: "RatingViewCell")
+        tableView.register(OtherRatingVCell.self, forCellReuseIdentifier: "OtherRatingVCell")
     }
     private func settingTableView() {
         tableView.delegate = self
@@ -71,7 +72,19 @@ extension InfoFilms: UITableViewDelegate, UITableViewDataSource {
             let cell2 = tableView.dequeueReusableCell(withIdentifier: "RatingViewCell") as! RatingViewCell
             cell2.configure(with: filmInfo)
             return cell2
+        }else if indexPath.row == 3 {
+            let cell3 = tableView.dequeueReusableCell(withIdentifier: "OtherRatingVCell") as! OtherRatingVCell
+            return cell3
         }
         return UITableViewCell()
     }
 }
+
+extension InfoFilms: RatingViewCellDelegate {
+    func didTapEstimateButton() {
+        let openView = ViewController()
+        present(openView, animated: true, completion: nil)
+    }
+}
+
+

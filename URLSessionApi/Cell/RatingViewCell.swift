@@ -9,12 +9,17 @@ import UIKit
 import SnapKit
 import Kingfisher
 
+protocol RatingViewCellDelegate: AnyObject {
+    func didTapEstimateButton()
+}
+
 class RatingViewCell: UITableViewCell {
+    weak var delegate: RatingViewCellDelegate?
     let nameRatingLabel = UILabel()
     let ratingLabel = UILabel()
     let estimateButton = UIButton()
     let viewFon = UIView()
-
+    
     override func awakeFromNib() {
         super.awakeFromNib()
     }
@@ -51,8 +56,8 @@ class RatingViewCell: UITableViewCell {
             make.width.equalTo(300)
         }
         viewFon.snp.makeConstraints { make in
-            make.left.equalToSuperview().inset(5)
-            make.right.equalToSuperview().inset(5)
+            make.left.equalToSuperview().inset(15)
+            make.right.equalToSuperview().inset(15)
             make.top.equalToSuperview().inset(5)
             make.bottom.equalToSuperview().inset(5)
             make.height.equalTo(220)
@@ -63,6 +68,7 @@ class RatingViewCell: UITableViewCell {
         ratingLabel.font = UIFont.systemFont(ofSize: 70)
         ratingLabel.textColor = .green
         ratingLabel.numberOfLines = 0
+        
         //MARK: Настройка "Рейтинг Кинопоиска"
         nameRatingLabel.font = UIFont.boldSystemFont(ofSize: 20)
         nameRatingLabel.lineBreakMode = NSLineBreakMode.byCharWrapping
@@ -71,6 +77,7 @@ class RatingViewCell: UITableViewCell {
         estimateButton.backgroundColor = .orange
         estimateButton.layer.cornerRadius = 20
         estimateButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 25)
+        estimateButton.addTarget(self, action: #selector(opensWindow), for: .touchUpInside)
         //MARK: Настройка фона
         viewFon.backgroundColor = .gray.withAlphaComponent(0.2)
     }
@@ -78,5 +85,11 @@ class RatingViewCell: UITableViewCell {
         ratingLabel.text = "\(film.rating.kp)"
         nameRatingLabel.text = "Рейтинг Кинопоиска"
     }
-
+    
+    @objc func opensWindow() {
+        delegate?.didTapEstimateButton()
+        print("func works")
+    }
 }
+
+
