@@ -32,22 +32,17 @@ class TableViewCell: UITableViewCell {
          contentView.addSubview(countriesFilmLabel)
          contentView.addSubview(yearFilmLabel)
          image.clipsToBounds = true
-         
          nameFilmLabel.font = UIFont.boldSystemFont(ofSize: 22)
-         
          genreFilmLabel.font = UIFont.systemFont(ofSize: 13)
          genreFilmLabel.numberOfLines = 0
-         
          countriesFilmLabel.font = .systemFont(ofSize: 13)
-         
          yearFilmLabel.font = .systemFont(ofSize: 13)
-
+         
         image.snp.makeConstraints { make in
             make.left.equalToSuperview().inset(15)
             make.top.equalToSuperview().inset(30)
             make.width.equalTo(100)
             make.height.equalTo(150)
-
         }
          nameFilmLabel.snp.makeConstraints { make in
              make.left.equalTo(image.snp.right).offset(50)

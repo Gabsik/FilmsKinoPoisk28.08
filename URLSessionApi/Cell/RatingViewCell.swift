@@ -82,7 +82,7 @@ class RatingViewCell: UITableViewCell {
         viewFon.backgroundColor = .gray.withAlphaComponent(0.2)
     }
     func configure(with film:Doc) {
-        ratingLabel.text = "\(film.rating.kp)"
+        ratingLabel.text = "\((film.rating.kp*10).rounded()/10)"
         nameRatingLabel.text = "Рейтинг Кинопоиска"
     }
     

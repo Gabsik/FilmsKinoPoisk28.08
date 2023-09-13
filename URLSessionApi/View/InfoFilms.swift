@@ -16,7 +16,6 @@ class InfoFilms: UIViewController {
         self.filmInfo = filmInfo
         super.init(nibName: nil, bundle: nil)
     }
-    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -30,6 +29,7 @@ class InfoFilms: UIViewController {
         constraints()
         registorCell()
         settingTableView()
+        
     }
     
     private func constraints() {
@@ -63,7 +63,6 @@ extension InfoFilms: UITableViewDelegate, UITableViewDataSource {
             let cell = tableView.dequeueReusableCell(withIdentifier: "InfoFilmsCell", for: indexPath) as! InfoFilmsCell
             cell.configure(with: filmInfo)
             return cell
-            
         }else if indexPath.row == 1 {
             let cell1 = tableView.dequeueReusableCell(withIdentifier: "ShortDescriptionCell") as! ShortDescriptionCell
             cell1.configure(with: filmInfo)
@@ -71,6 +70,7 @@ extension InfoFilms: UITableViewDelegate, UITableViewDataSource {
         } else if indexPath.row == 2 {
             let cell2 = tableView.dequeueReusableCell(withIdentifier: "RatingViewCell") as! RatingViewCell
             cell2.configure(with: filmInfo)
+            cell2.delegate = self
             return cell2
         }else if indexPath.row == 3 {
             let cell3 = tableView.dequeueReusableCell(withIdentifier: "OtherRatingVCell") as! OtherRatingVCell
@@ -79,10 +79,9 @@ extension InfoFilms: UITableViewDelegate, UITableViewDataSource {
         return UITableViewCell()
     }
 }
-
 extension InfoFilms: RatingViewCellDelegate {
     func didTapEstimateButton() {
-        let openView = ViewController()
+        let openView = RateMovieViewController(film: filmInfo)
         present(openView, animated: true, completion: nil)
     }
 }

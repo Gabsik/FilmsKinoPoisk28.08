@@ -8,19 +8,14 @@
 import UIKit
 
 class OtherRaringCollectionView: UICollectionView {
-    
-    //let rating: Rating = []
-    
     init() {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
         super.init(frame: .zero, collectionViewLayout: layout)
-        
         delegate = self
         dataSource = self
         register(OtherRatingCollectionViewCell.self, forCellWithReuseIdentifier: "OtherRatingCollectionViewCell")
         layout.minimumLineSpacing = Constr.minimumLineSpacing //Растояние между ячейками
-        
         showsHorizontalScrollIndicator = false // убрать индикатор прокрутки по горизоннтале
         contentInset = UIEdgeInsets(top: 0 , left: Constr.leftDistatanseToView, bottom: 0, right: Constr.rightDistatanseToView)
     }
@@ -32,13 +27,11 @@ extension OtherRaringCollectionView: UICollectionViewDelegate, UICollectionViewD
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         3
     }
-    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = dequeueReusableCell(withReuseIdentifier: "OtherRatingCollectionViewCell" , for: indexPath) as! OtherRatingCollectionViewCell
         return cell
     }
 }
-
 extension OtherRaringCollectionView: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: Constr.itemWidth, height: 200)

@@ -22,6 +22,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         myTable.rowHeight = UITableView.automaticDimension
         myTable.estimatedRowHeight = 300.0
         myTable.separatorStyle = .none
+        //myTable.allowsSelection = false
         
         ApiManager.shared.filmsList { [weak self] values in
             DispatchQueue.main.async {

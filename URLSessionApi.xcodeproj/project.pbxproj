@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		CE5F60092A812A9300948CC4 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = CE5F60082A812A9300948CC4 /* Kingfisher */; };
 		CE5F600C2A81365200948CC4 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5F600B2A81365200948CC4 /* TableViewCell.swift */; };
+		CE9F3B5C2AB242550000E0E1 /* RateMovieViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9F3B5B2AB242550000E0E1 /* RateMovieViewController.swift */; };
 		CEDCCB732A856E9F00F12AF2 /* Protocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDCCB722A856E9F00F12AF2 /* Protocol.swift */; };
 		CEDCCB762A89276700F12AF2 /* InfoFilms.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDCCB752A89276700F12AF2 /* InfoFilms.swift */; };
 		CEDCCB782A892CEE00F12AF2 /* InfoFilmsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDCCB772A892CEE00F12AF2 /* InfoFilmsCell.swift */; };
@@ -29,6 +30,7 @@
 
 /* Begin PBXFileReference section */
 		CE5F600B2A81365200948CC4 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
+		CE9F3B5B2AB242550000E0E1 /* RateMovieViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateMovieViewController.swift; sourceTree = "<group>"; };
 		CEDCCB722A856E9F00F12AF2 /* Protocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocol.swift; sourceTree = "<group>"; };
 		CEDCCB752A89276700F12AF2 /* InfoFilms.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoFilms.swift; sourceTree = "<group>"; };
 		CEDCCB772A892CEE00F12AF2 /* InfoFilmsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoFilmsCell.swift; sourceTree = "<group>"; };
@@ -79,6 +81,7 @@
 			children = (
 				CEFD26D62A765E14009F31C4 /* ViewController.swift */,
 				CEDCCB752A89276700F12AF2 /* InfoFilms.swift */,
+				CE9F3B5B2AB242550000E0E1 /* RateMovieViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -207,6 +210,7 @@
 				CEDCCB782A892CEE00F12AF2 /* InfoFilmsCell.swift in Sources */,
 				CEFD26D32A765E14009F31C4 /* AppDelegate.swift in Sources */,
 				CEDCCB732A856E9F00F12AF2 /* Protocol.swift in Sources */,
+				CE9F3B5C2AB242550000E0E1 /* RateMovieViewController.swift in Sources */,
 				CEDCCB802AA0F2B600F12AF2 /* OtherRatingVCell.swift in Sources */,
 				CEDCCB7E2A9E622F00F12AF2 /* RatingViewCell.swift in Sources */,
 			);
