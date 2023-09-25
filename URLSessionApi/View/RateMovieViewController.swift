@@ -16,12 +16,13 @@ class RateMovieViewController: UIViewController {
     let nameFilmLabel = UILabel()
     let circleView = UIView()
     let rateButton = UIButton()
-    
+    let xmarkCircleButton = UIButton()
+    //let xmarkCircle = UIImageView(image: UIImage (systemName: "xmark.circle"))
+    let numbersCollectionViewController = NumbersCollectionVC()
     init(film: Doc) {
         self.film = film
         super.init(nibName: nil, bundle: nil)
     }
-    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -35,6 +36,9 @@ class RateMovieViewController: UIViewController {
         view.addSubview(nameFilmLabel)
         view.addSubview(circleView)
         view.addSubview(rateButton)
+        addChild(numbersCollectionViewController)
+        view.addSubview(numbersCollectionViewController.view)
+        view.addSubview(xmarkCircleButton)
         view.backgroundColor = .gray
         constraints()
         setting()
@@ -63,13 +67,24 @@ class RateMovieViewController: UIViewController {
         }
         rateButton.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.bottom.equalToSuperview().inset(10)
-            make.width.equalTo(150)
+            make.bottom.equalToSuperview().inset(30)
+            make.width.equalTo(200)
+            make.height.equalTo(50)
+        }
+        numbersCollectionViewController.view.snp.makeConstraints { make in
+            make.centerX.leading.trailing.equalToSuperview()
+            make.top.equalTo(nameFilmLabel.snp.bottom).offset(100)
+            make.height.equalTo(100)
+        }
+        xmarkCircleButton.snp.makeConstraints { make in
+            make.top.equalToSuperview().offset(5)
+            make.right.equalToSuperview().inset(5)
+            
         }
     }
     private func setting() {
         //MARK: setting nameWindowLabel
-        nameWindowLabel.text = " Оценить"
+        nameWindowLabel.text = " Оценить Фильм"
         nameWindowLabel.font = .boldSystemFont(ofSize: 25)
         nameWindowLabel.textColor = .black
         //MARK: setting nameFilmLabel
@@ -80,12 +95,14 @@ class RateMovieViewController: UIViewController {
         circleView.backgroundColor = .darkGray
         circleView.layer.cornerRadius = 75
         //MARK: setting rateButton
-        rateButton.setTitle("Оценить", for: .normal)
+        rateButton.setTitle("Поставить оценку", for: .normal)
         rateButton.layer.cornerRadius = 15
         rateButton.backgroundColor = .darkGray
-        
-        
-        
+        rateButton.titleLabel?.font = .boldSystemFont(ofSize: 20)
+        //MARK: setting xmarkCircleButton
+        xmarkCircleButton.setImage(UIImage(systemName: "xmark.circle"), for: .normal)
+        xmarkCircleButton.addTarget(self, action: #selector(closeButtonTapped), for: .touchUpInside)
+        xmarkCircleButton.tintColor = .black
     }
     private func config(with url: URL) {
         filmCoverImage.kf.setImage(with: url)
@@ -96,5 +113,8 @@ class RateMovieViewController: UIViewController {
         }else {
             print("Non")
         }
+    }
+    @objc func closeButtonTapped() {
+        self.dismiss(animated: true, completion: nil)
     }
 }

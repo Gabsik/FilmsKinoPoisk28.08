@@ -7,8 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CE5DD4722AC1EA8F003AC2EF /* AuthorizationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5DD4712AC1EA8F003AC2EF /* AuthorizationView.swift */; };
 		CE5F60092A812A9300948CC4 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = CE5F60082A812A9300948CC4 /* Kingfisher */; };
 		CE5F600C2A81365200948CC4 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5F600B2A81365200948CC4 /* TableViewCell.swift */; };
+		CE9CA6682AB8AEF60067C58C /* NumbersCollectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9CA6672AB8AEF60067C58C /* NumbersCollectionVC.swift */; };
+		CE9CA66D2ABCA5420067C58C /* HomeScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9CA66C2ABCA5420067C58C /* HomeScreenViewController.swift */; };
 		CE9F3B5C2AB242550000E0E1 /* RateMovieViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9F3B5B2AB242550000E0E1 /* RateMovieViewController.swift */; };
 		CEDCCB732A856E9F00F12AF2 /* Protocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDCCB722A856E9F00F12AF2 /* Protocol.swift */; };
 		CEDCCB762A89276700F12AF2 /* InfoFilms.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDCCB752A89276700F12AF2 /* InfoFilms.swift */; };
@@ -29,7 +32,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CE5DD4712AC1EA8F003AC2EF /* AuthorizationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationView.swift; sourceTree = "<group>"; };
 		CE5F600B2A81365200948CC4 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
+		CE9CA6672AB8AEF60067C58C /* NumbersCollectionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumbersCollectionVC.swift; sourceTree = "<group>"; };
+		CE9CA66C2ABCA5420067C58C /* HomeScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenViewController.swift; sourceTree = "<group>"; };
 		CE9F3B5B2AB242550000E0E1 /* RateMovieViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateMovieViewController.swift; sourceTree = "<group>"; };
 		CEDCCB722A856E9F00F12AF2 /* Protocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocol.swift; sourceTree = "<group>"; };
 		CEDCCB752A89276700F12AF2 /* InfoFilms.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoFilms.swift; sourceTree = "<group>"; };
@@ -66,14 +72,22 @@
 		CE5F600A2A81363600948CC4 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
+				CE9CA6692ABA03130067C58C /* CollectionCell */,
 				CE5F600B2A81365200948CC4 /* TableViewCell.swift */,
 				CEDCCB772A892CEE00F12AF2 /* InfoFilmsCell.swift */,
 				CEDCCB7B2A90D5A200F12AF2 /* ShortDescriptionCell.swift */,
 				CEDCCB7D2A9E622F00F12AF2 /* RatingViewCell.swift */,
 				CEDCCB7F2AA0F2B500F12AF2 /* OtherRatingVCell.swift */,
-				CEDCCB832AA1060F00F12AF2 /* OtherRatingCollectionViewCell.swift */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		CE9CA6692ABA03130067C58C /* CollectionCell */ = {
+			isa = PBXGroup;
+			children = (
+				CEDCCB832AA1060F00F12AF2 /* OtherRatingCollectionViewCell.swift */,
+			);
+			path = CollectionCell;
 			sourceTree = "<group>";
 		};
 		CEDCCB742A89272700F12AF2 /* View */ = {
@@ -82,6 +96,8 @@
 				CEFD26D62A765E14009F31C4 /* ViewController.swift */,
 				CEDCCB752A89276700F12AF2 /* InfoFilms.swift */,
 				CE9F3B5B2AB242550000E0E1 /* RateMovieViewController.swift */,
+				CE9CA66C2ABCA5420067C58C /* HomeScreenViewController.swift */,
+				CE5DD4712AC1EA8F003AC2EF /* AuthorizationView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -107,6 +123,7 @@
 			children = (
 				CEFD26D22A765E14009F31C4 /* AppDelegate.swift */,
 				CEDCCB812AA0FC3A00F12AF2 /* OtherRaringCollectionView.swift */,
+				CE9CA6672AB8AEF60067C58C /* NumbersCollectionVC.swift */,
 				CE5F600A2A81363600948CC4 /* Cell */,
 				CEDCCB742A89272700F12AF2 /* View */,
 				CEFD26DB2A765E17009F31C4 /* Assets.xcassets */,
@@ -198,12 +215,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE9CA66D2ABCA5420067C58C /* HomeScreenViewController.swift in Sources */,
 				CEDCCB7C2A90D5A200F12AF2 /* ShortDescriptionCell.swift in Sources */,
 				CE5F600C2A81365200948CC4 /* TableViewCell.swift in Sources */,
 				CEDCCB822AA0FC3A00F12AF2 /* OtherRaringCollectionView.swift in Sources */,
 				CEFD26EE2A782FA4009F31C4 /* ApiManager.swift in Sources */,
 				CEDCCB842AA1060F00F12AF2 /* OtherRatingCollectionViewCell.swift in Sources */,
+				CE9CA6682AB8AEF60067C58C /* NumbersCollectionVC.swift in Sources */,
 				CEFD26D72A765E14009F31C4 /* ViewController.swift in Sources */,
+				CE5DD4722AC1EA8F003AC2EF /* AuthorizationView.swift in Sources */,
 				CEFD26EC2A76C30D009F31C4 /* File.swift in Sources */,
 				CEDCCB762A89276700F12AF2 /* InfoFilms.swift in Sources */,
 				CEDCCB862AA25D6500F12AF2 /* Constraints.swift in Sources */,
