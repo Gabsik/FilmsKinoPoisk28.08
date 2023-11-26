@@ -7,10 +7,13 @@
 import UIKit
 import SnapKit
 import Kingfisher
+import Firebase
 
 class InfoFilms: UIViewController {
     let tableView = UITableView()
-    let filmInfo: Doc
+    var filmInfo: Doc
+    var isLoggedIn = false
+    //let logoutBarButton = UIBarButtonItem(title: "выйти", style: .plain, target: self, action: #selector(logout))
     
     init(filmInfo: Doc) {
         self.filmInfo = filmInfo
@@ -26,6 +29,7 @@ class InfoFilms: UIViewController {
     }
     private func setupe() {
         view.addSubview(tableView)
+        //navigationItem.leftBarButtonItem = logoutBarButton
         constraints()
         registorCell()
         settingTableView()
@@ -52,6 +56,21 @@ class InfoFilms: UIViewController {
         tableView.separatorStyle = .none
         tableView.allowsSelection = false
     }
+    @objc func logout() {
+        if let user = Auth.auth().currentUser, user.isAnonymous {
+            do {
+                try Auth.auth().signOut()
+                print("Пользователь успешно вышел из системы (гость)")
+                
+                // Ваш код после успешного выхода
+            } catch {
+                print("Ошибка выхода из системы: \(error.localizedDescription)")
+            }
+        } else {
+            print("Нет гостевого пользователя для выхода")
+        }
+    }
+    
 }
 extension InfoFilms: UITableViewDelegate, UITableViewDataSource {
     
@@ -78,6 +97,7 @@ extension InfoFilms: UITableViewDelegate, UITableViewDataSource {
         }
         return UITableViewCell()
     }
+    
 }
 extension InfoFilms: RatingViewCellDelegate {
     func didTapEstimateButton() {

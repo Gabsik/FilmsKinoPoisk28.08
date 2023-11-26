@@ -7,16 +7,20 @@
 
 import UIKit
 import SnapKit
+import Firebase
 
 class HomeScreenViewController: UIViewController {
-    let customColorFon = UIColor(named: "FonColor")
+    let customColorBackground = UIColor(named: "FonColor")
     let customColorButton = UIColor(named: "ButtonColor")
     let guestButton = UIButton()
     let authorizationButton = UIButton()
     let registrationButton = UIButton()
+
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = customColorFon
+        view.backgroundColor = customColorBackground
         setupe()
     }
     private func setupe() {
@@ -53,7 +57,7 @@ class HomeScreenViewController: UIViewController {
         guestButton.layer.cornerRadius = 10
         guestButton.titleLabel?.font = .boldSystemFont(ofSize: 20)
         guestButton.setTitleColor(.black, for: .normal)
-        //guestButton.addTarget(self, action: #selector(openViewInfoFilms), for: .touchUpInside)
+        guestButton.addTarget(self, action: #selector(openViewInfoFilms), for: .touchUpInside)
         //MARK: authorizationButton
         authorizationButton.setTitle("Войти по логину и паролю", for: .normal)
         authorizationButton.backgroundColor = customColorButton
@@ -67,9 +71,28 @@ class HomeScreenViewController: UIViewController {
         registrationButton.layer.cornerRadius = 10
         registrationButton.titleLabel?.font = .boldSystemFont(ofSize: 20)
         registrationButton.setTitleColor(.black, for: .normal)
+        registrationButton.addTarget(self, action: #selector(openViewRegistration), for: .touchUpInside)
     }
     @objc func openViewAuthorization() {
         let authorizationView = AuthorizationView()
         present(authorizationView, animated: true, completion: nil)
     }
+    @objc func openViewRegistration() {
+        let regictrationView = RegistrationViewController()
+        present(regictrationView, animated: true, completion: nil)
+        
+    }
+    @objc func openViewInfoFilms() {
+        Auth.auth().signInAnonymously { result, error in
+            if error == nil {
+                print("пользователь вошел как гость")
+                let viewController = ViewController()
+                self.navigationController?.pushViewController(viewController, animated: true)
+            }else{
+                print("Ошибка входа как гость")
+            }
+        }
+        
+    }
+    
 }

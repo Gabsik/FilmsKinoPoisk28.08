@@ -17,7 +17,6 @@ class RateMovieViewController: UIViewController {
     let circleView = UIView()
     let rateButton = UIButton()
     let xmarkCircleButton = UIButton()
-    //let xmarkCircle = UIImageView(image: UIImage (systemName: "xmark.circle"))
     let numbersCollectionViewController = NumbersCollectionVC()
     init(film: Doc) {
         self.film = film
@@ -79,7 +78,6 @@ class RateMovieViewController: UIViewController {
         xmarkCircleButton.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(5)
             make.right.equalToSuperview().inset(5)
-            
         }
     }
     private func setting() {
